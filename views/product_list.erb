@@ -1,0 +1,56 @@
+<div class="span9">
+<table class="table table-striped table-hover table-bordered" id="product_list">
+	<tr>
+	 <th>Product id</th>
+	 <th>Product name</th>
+	 <th>Minimum orderable with <%= @promotion.min_discount %>% discount</th>
+	 <th>Minimum orderable with <%= @promotion.max_discount %>% discount</th>
+	 <th>Orderable product?</th>
+      <th>Operations</th>
+	</tr>
+<% @products.each do |product| %>
+	<tr>
+	 <td><%= product.id %></td>
+	 <td><%= product.name %></td>
+	 <td><%= product.min_orderable_five %></td>
+	 <td><%= product.min_orderable_ten %></td>
+	 <td><%= product.status %></td>
+     <td>
+       <form action="" method="post" accept-charset="utf-8">
+         <input type="hidden" name="id" value="<%= product.id %>">
+         <% if product.status == "active" %>
+             <input type="hidden" name="status" value="inactive">
+             <input type="submit" name="Deactivate" value="Deactivate" class="btn btn-warning"/>
+         <% else %>
+             <input type="hidden" name="status" value="active">
+             <input type="submit" name="Activate" value="Activate" class="btn btn-success"/>
+         <% end %>
+       </form>
+       <a href="/admin/products/edit/<%= product.id %>" class="btn btn-success">Edit</a>
+       <form action="/admin/products/delete" method="post" accept-charset="utf-8">
+         <input type="hidden" name="id" value="<%= product.id %>">
+         <input type="submit" name="delete" value="Delete" class="btn btn-danger"/>
+       </form>
+	 </td>
+	</tr>
+<% end %>
+</table>
+</div>
+<div class="span2">
+  <form action="/admin/products/new" method="post" accept-charset="utf-8" class="form-group">
+    <label for="name" class="col-lg-2 control-label">Product name</label>
+    <input type="text" name="name" value="" placeholder="Product"/>
+    <label for="min_orderable_five" class="col-lg-2 control-label">minimum orderable item with 5% discount.</label>
+    <input type="text" name="min_orderable_five" value="" placeholder="5% discount"/>
+    <label for="min_orderable_ten" class="col-lg-2 control-label">minimum orderable item with 10% discount.</label>
+    <input type="text" name="min_orderable_ten" value="" placeholder="10% discount"/>
+    <fieldset>
+      <label for="active">Orderable product?</label>
+      <select name="status" id="active">
+        <option value="active">yes</option>
+        <option value="inactive">no</option>
+      </select>
+    </fieldset>
+    <input type="submit" value="Save" class="btn btn-success">
+  </form>
+</div>

@@ -1,0 +1,49 @@
+<form action="" method="post" accept-charset="utf-8" class="form">
+	<table cellpadding="0" cellspacing="0" width="960">
+		<thead id="orderform-head">
+		<tr class="wholesaler_row">
+           <td colspan="1" class="wholesale_selector">
+             <label for="wholesaler">Wholesalers</label>
+           </td>
+           <td colspan="4" class="wholesale_selector">
+           <!-- Wholesalers are hardcoded but this can be easily changed.-->
+             <select name="wholesaler" id="wholesaler">
+                <option>Company</option>
+                <option>Another great company</option>
+                <option>Another company</option>
+             </select>
+           </td>
+        </tr>
+			<tr>
+				<th rowspan="2" width="480" height="84"><h2 id="form-title">Discounts</h2></th>
+				<th colspan="2" width="240" height="42" class="percentage"><span id="discount-five" class="discount-percentage"><%= @client.loyalty == true ? @promotion.min_discount + 5 : @promotion.min_discount %>%</span></th>
+				<th colspan="2" width="240" height="42" class="percentage"><span id="discount-ten" class="discount-percentage"><%= @client.loyalty == true ? @promotion.max_discount + 5 : @promotion.max_discount %>%</span></th>
+			</tr>
+			<tr>
+				<th width="110" class="min-orderable five-percent">Minimum orderable amount</th>
+				<th width="120" class="ordered">Ordered amount</th>
+				<th width="110" class="min-orderable ten-percent">Minimum orderable amount</th>
+				<th width="120" class="ordered">Ordered amount</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @products.each do |product| %>
+			<tr>
+				<td width="480" class="item-name"><%= product.name %><input type="hidden" name="<%= @i %>product_id" value="<%= product.id %>"><input type="hidden" name="<%= @i %>product_name" value="<%= product.name %>"></td>
+				<td width="120" class="min-orderable five-percent"><%= product.min_orderable_five == 0 ? "no discount" : product.min_orderable_five  %>
+				<input type="hidden" name="<%= @i %>min_orderable_five" value="<%= product.min_orderable_five %>" placeholder="0"/></td>
+				<td width="120" class="ordered"><input type="text" name="<%= @i %>product_five_ordered" value="" placeholder="0"/></td>
+				<td width="120" class="min-orderable ten-percent"><%= product.min_orderable_ten == 0 ? "no discount" : product.min_orderable_ten  %><input type="hidden" name="<%= @i %>min_orderable_ten" value="<%= product.min_orderable_ten %>" placeholder="0"/></td>
+				<td width="120" class="ordered"><input type="text" name="<%= @i %>product_ten_ordered" value="" placeholder="0"/></td>
+			<% @i += 1 %>
+			</tr>
+		<% end %>
+		</tr>
+		</tbody>
+		<input type="hidden" name="reference_number" value="<%= @client.reference %>">
+	</table>
+	<div class="submit_field">
+		<p>This can be a disclaimer here regarding the order process.</p>
+		<input type="submit" name="place_order" value="Place order" class="btn btn-large btn-success"/>
+	</div>
+</form>

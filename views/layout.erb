@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8" lang="hu">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title><%= @title ? @title : 'Company name' %></title>
+			<link rel="stylesheet" href="/css/bootstrap.min.css">
+			<link rel="stylesheet" href="/css/style.css">
+			<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+			<script src="/script/bootstrap.min.js"></script>
+			<script src="/script/app.js"></script>
+	</head>
+	<body>
+	<header id="header">
+		<div class="header-brand">
+		<img src="/images/company-logo.png" title="company-logo" id="logo"/>
+        <% if !@client.nil? %>
+        	<ul class="client_data">
+		    	<li><span class="black">Company name:</span> <%= @client.name %></li>
+		    	<li><span class="black">Address:</span> <%= @client.address %></li>
+		    	<li><span class="black">External Id:</span> <%= @client.external_id %></li>
+		    </ul>
+        <% end %>
+		</div>
+      <div class="header_right">
+      <% if !@client.nil? %>
+        <h2><%= @promotion.title ? @promotion.title : 'No promotion at the moment' %></h2>
+        <p>Promotion dates: <%= @promotion.start_date %> - <%= @promotion.end_date %></p>
+        <p><%= @promotion.description %></p>
+      <% end %>
+      </div>
+
+
+	</header><!-- /header -->
+		<% [:notice, :warning, :error].each do |key| %>
+			<% if flash.include?(key) %>
+				<div class="alert alert-message alert-<%= key %>">
+					<%= flash[key] %>
+				</div>
+			<% end %>
+		<% end %>
+
+		<div id="container" class="rounded-corners">
+		<%= yield %>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				<p>Legal/Code</p>
+			</div>
+		</footer>
+	</body>
+</html>

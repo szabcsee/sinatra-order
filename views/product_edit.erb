@@ -1,0 +1,16 @@
+<form action="" method="post" accept-charset="utf-8">
+  <fieldset>
+    <label for="name" class="col-lg-2 control-label">Product name</label>
+    <input type="text" name="name" value="<%= @product.name %>" placeholder="Product name"/>
+    <label for="min_orderable_five" class="col-lg-2 control-label"><%= @promotion.min_discount %>% min orderable amount.</label>
+    <input type="text" name="min_orderable_five" value="<%= @product.min_orderable_five %>" placeholder="5% discount"/>
+    <label for="min_orderable_ten" class="col-lg-2 control-label"><%= @promotion.max_discount %>% min orderable amount.</label>
+    <input type="text" name="min_orderable_ten" value="<%= @product.min_orderable_ten %>" placeholder="10% discount"/>
+    <fieldset>
+      <label for="status">Orderable?</label>
+      <select name="status" id="active">
+        <option value="active">yes</option>
+        <option value="inactive">no</option>
+      </select>
+    </fieldset>
+    <input type="submit" value="Save" class="btn btn-success">

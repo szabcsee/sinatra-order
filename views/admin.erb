@@ -1,0 +1,19 @@
+<h2>Admin area</h2>
+<p>You can edit the promotions here</p>
+
+
+<form action="admin/promotion/new" accept-charset="utf-8" class="form datepicker_form" method="post">
+  <label for="title">Promotion title</label>
+  <input type="text" name="promo_title" value="<%= @promotion ? @promotion.title : '' %>"/>
+  <label for="description">Promotion description</label>
+  <input type="textarea" name="promo_desc" value="<%= @promotion ? @promotion.description : '' %>"/>
+  <label for="description">Smaller discount</label>
+  <input type="textarea" name="min_discount" value="<%= @promotion ? @promotion.min_discount : '' %>"/>
+  <label for="description">Bigger discount</label>
+  <input type="textarea" name="max_discount" value="<%= @promotion ? @promotion.max_discount : '' %>"/>
+  <label for="start_date">Start date</label>
+  <input type="text" id="from" name="start_date" value="<%= @promotion ? @promotion.start_date : '2014-01-01' %>"/>
+  <label for="end_date">End date</label>
+  <input type="text" id="to" name="end_date" value="<%= @promotion ? @promotion.start_date : '2014-01-01' %>"/>
+  <input type="submit" value="Save" class="btn-large btn-success"/>
+</form>

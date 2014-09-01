@@ -1,0 +1,34 @@
+<div class="row-fluid">
+  <table class="table table-striped table-hover table-bordered tablesorter-green tablesorter" id="orders_table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Order date</th>
+      <th>Product name</th>
+      <th><%= @promotion.min_discount %>% discount order</th>
+      <th><%= @promotion.max_discount %>% discount order</th>
+      <th>Link to order form</th>
+      <th>Wholesaler</th>
+      <th>Client</th>
+      <th>External id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+     <td><%= order.id %></td>
+     <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+     <td><%= Product.get(order.product_id) ? Product.get(order.product_id).name : "Deleted product" %></td>
+     <td><%= order.five_ordered %></td>
+     <td><%= order.ten_ordered %></td>
+      <% file = order.path_to_file[13,25].to_s     %>
+     <td><a href="/download/<%= file %>">Order PDF</a></td>
+     <td><%= order.wholesaler %></td>
+     <% client = Client.get(order.client_id) %>
+     <td><%= client.name %></td>
+     <td><%= client.external_id %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

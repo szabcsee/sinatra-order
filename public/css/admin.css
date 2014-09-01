@@ -1,0 +1,74 @@
+body.container {
+    width: 1024px;
+}
+.span12 {
+    margin-left: 0px;
+}
+.alert-message {
+    clear: both;
+}
+.clear {
+    clear: both;
+    float: none;
+}
+#yield {
+	padding-top: 55px;
+}
+h2.admin_title {
+	margin-top: 70px;
+}
+#product_list td .btn,
+#client_list td .btn {
+    margin: 3px 0px;
+}
+#product_list td form,
+#client_list td form {
+    margin-bottom: 0px;
+}
+span.order_code {
+    display: block;
+    color: #999999;
+    float: right;
+    font-size: 12px;
+    height: 20px;
+    margin-top: 10px;
+}
+#orders_table.table thead tr th {
+    vertical-align: middle;
+}
+#orders_table.tablesorter-green th, #orders_table.tablesorter-green thead td {
+    padding: 0px;
+}
+#add_new_client {
+    background: #f2f2f2;
+    border-radius: 4px;
+    padding: 10px 2px;
+}
+#add_new_client input.btn[type="submit"] {
+    display: block;
+    float: right;
+    margin: 5px;
+}
+#add_new_client fieldset {
+    display: inline-block;
+    width: 120px;
+}
+#add_new_client fieldset input {
+    width: 160px;
+} 
+#live_search {
+    color: #0088CC;
+    margin: 8px 0px;
+    height: 14px;
+    width: 160px;
+}
+.section_control {
+    margin-left: 15px;
+}
+.section_control,
+.section_control .hide_section,
+.section_control .show_section {
+    color: #0088CC;
+    font-size: 12px;
+    text-decoration: none;
+}
