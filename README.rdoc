@@ -1,3 +1,10 @@
-== Company Ordering Application
+# Product ordering application
 
-moved repo to Bitbucket
+Ligthweight app written in Ruby, using Sinatra, Prawn, DataMapper (MYSQL database) 
+
+This small application allows the secure ordering of product for clients. 
+There is a front-end with a login form for clients and a form where they can add the ordered amount, there are also discount possibilities.
+
+The admin area contains an interface for adding new products, adding clients, bulk upload of clients, managing orders.
+
+The application also produces a PDF of the order and send it via SendGrid.
