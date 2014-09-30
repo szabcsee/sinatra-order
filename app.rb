@@ -10,6 +10,7 @@ require 'csv'
 require 'pg'
 require 'data_mapper'
 require 'dm-core'
+require 'dm-postgres-adapter'
 require 'dm-migrations'
 # Mail is for email sending (surprisingly)
 require 'mail'
