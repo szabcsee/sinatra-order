@@ -25,7 +25,7 @@ def render_form(data, url, company_name, company_address, wholesaler)
       #                                         :italic => "public/fonts/DejaVuLGCSans-Oblique.ttf",
       #                                         :bold => "public/fonts/DejaVuLGCSans-Bold.ttf"})
       # The fonts have been removed but it is recommended that you use your own fonts.
-        pdf.font("Futura", :style => :normal)
+        pdf.font("Arial", :style => :normal)
         pdf.image("public/images/company-logo.png", { :position => :left, :vposition => :top, :scale => 0.25})
         pdf.image("public/images/company-title.png", { :position => :right, :vposition => :top, :scale => 0.24, :top_margin => 30})
         pdf.text "#{company_name}".upcase + "/" + "#{company_address} | Selected wholesaler: #{wholesaler} ".upcase, :size => 9, :align => :left
