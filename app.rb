@@ -7,6 +7,7 @@ require 'rack-flash'
 require 'logger'
 require 'csv'
 # Database management
+require 'pg'
 require 'data_mapper'
 require 'dm-core'
 require 'dm-migrations'
@@ -39,7 +40,7 @@ set :public_folder, File.dirname(__FILE__) + '/public'
 
 
 
-DataMapper.setup(:default, 'mysql://root:password@localhost/databasename')
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 DataMapper::Model.raise_on_save_failure = true
 
 DataMapper.finalize
