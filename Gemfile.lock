@@ -70,7 +70,7 @@ GEM
     prawn (1.2.1)
       pdf-core (~> 0.2.5)
       ttfunk (~> 1.2.0)
-    prawn-table (0.1.2)
+    prawn-table (0.2.0)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
@@ -99,6 +99,6 @@ DEPENDENCIES
   mail
   pg
   prawn (~> 1.2.1)
-  prawn-table (~> 0.1.0)
+  prawn-table (~> 0.2.0)
   rack-flash3
   sinatra

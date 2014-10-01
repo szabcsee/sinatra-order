@@ -17,7 +17,7 @@ require 'mail'
 # Prawn is for pdf generation
 require "prawn"
 require "prawn/measurement_extensions"
-require "prawn/tables"
+require "prawn/table"
 # Including helpers
 $: << File.dirname(__FILE__) + "/helpers"
 require 'helper'
