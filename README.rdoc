@@ -8,3 +8,7 @@ There is a front-end with a login form for clients and a form where they can add
 The admin area contains an interface for adding new products, adding clients, bulk upload of clients, managing orders.
 
 The application also produces a PDF of the order and send it via SendGrid.
+You can check the app here: http://young-journey-7120.herokuapp.com
+
+Credentials for admin: user: admin password: password
+Email sending has been disabled as sendgrid is integrated. 
