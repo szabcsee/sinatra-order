@@ -160,7 +160,8 @@ post '/order-form'  do # Process the order form
    end
     if render_form(@all_orders, @path_to_file, @client.name, @client.address, @wholesaler)
       puts "Success!"
-      emailConfirmOrder(@client.email,@path_to_file)
+      / Email sending commented out for Heroku
+        emailConfirmOrder(@client.email,@path_to_file) /
       flash[:notice] = "Your order has been placed successfully"
       @promotion = Promotion.first()
       erb :order_complete
